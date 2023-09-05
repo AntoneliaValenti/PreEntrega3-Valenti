@@ -41,19 +41,16 @@ if (age > 1 && age < 18) {
         } else {
             precioRutinaEjercicio = 0; 
         }
-
-        
-        function calcularCostoTotal (precioLibroRecetas, precioRutinaEjercicio) {
-                let resultado = precioLibroRecetas + precioRutinaEjercicio;
-                return resultado;
-                console.log("El costo total es: $" + resultado);
-            }
+ 
       
-        //costoTotal = precioLibroRecetas + precioRutinaEjercicio;
-        //alert('El costo total es: $' + costoTotal);
-
+        calcularCostoTotal(precioLibroRecetas, precioRutinaEjercicio)
         break;
     }   
-    
-    //hola123!
+}  
+function calcularCostoTotal (precioLibroRecetas, precioRutinaEjercicio) {
+        let resultado = precioLibroRecetas + precioRutinaEjercicio;
+        alert("El costo total es: $" + resultado);
+        return resultado;
 }
+
+//terminado

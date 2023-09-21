@@ -8,7 +8,7 @@ let person3 = {
     nameImput : "Soledad",
     ageInput : 29,
     diet : "vegana",
-    rutine:"no"
+    rutine:"No requerida"
 }
 console.log(person3);
 
@@ -19,7 +19,7 @@ let person5 = {
     nameInput : "Mara",
     ageInput : 27,
     diet : "vegana",
-    rutine: "si",
+    rutine: "Requerida"
 }
 console.log(person5);
 
@@ -31,6 +31,9 @@ console.log(usuer);
 const findDiet = usuer.filter((el) => el.diet == "vegana");
 console.log(findDiet);
 
+
+let last = usuer.pop();
+console.log(last);
 
 function newUser (){
     let persona = {

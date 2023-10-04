@@ -1,13 +1,144 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dietario</title>
+    <link rel="stylesheet" href="./index.css">
+    <title>PRUEBA</title>
 </head>
 <body>
-    <h1>Encontra tu dieta deseada!</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum doloribus sint quasi magnam libero tempora unde perspiciatis at, a non omnis maiores sunt inventore, error obcaecati tempore quas quo molestias!</p>
-<script src="./index2.js"></script>
+<header>
+     <h1 id="title">Encontra tu dieta deseada!</h1>
+</header>    
+<main>
+    <section  class="conteiner">
+        <div>
+            <h2>Ingresa los datos:</h2>
+        </div>
+        <form action="" id="formulario">
+
+            <label for="username">Nombre:</label> 
+            <input id="username" type="text" name="username">
+
+            
+            <label id="label" for="task">Dieta:</label>         
+            <select name="diet" id="diet">
+                <option value="variada">Variada</option>
+                <option value="vegetariana">Vegetariana</option>
+                <option value="proteica">Proteíca</option>
+                <option value="fit">Fit</option>
+            </select>
+
+            <label class="ingredients">Ingrediente 1</label> 
+            <select name="ingredients1" id="ingredients1">
+                <option value="ternera">Ternera</option>
+                <option value="pollo">Pollo</option>
+                <option value="pescado">Pescado</option>
+                <option value="lenteja">lenteja</option>
+                <option value="quinoa">quinoa</option>
+            </select>
+
+            <label class="ingredients">Ingrediente 2</label> 
+            <select name="ingredients2" id="ingredients2">
+                <option value="tomate">tomate</option>
+                <option value="papa">papa</option>
+                <option value="zanahoria">zanahoria</option>
+                <option value="hojas verdes">hojas verdes</option>
+                <option value="zapallo">zapallo</option>
+                <option value="choclo">choclo</option>
+            </select>
+
+            <label id="email">Mail</label> 
+            <input id="mail" mail="mail">
+
+            <button id="button" type="button">Let's go!</button> 
+        
+        </form>
+    </section>
+<section>
+    <h2>Listado de Recetas</h2>
+    <section>
+        <div id="datos_container" > </div>
+    </section>
+    
+</section>
+</main>
+
+
+
+    <script src="./index.js"></script>
 </body>
 </html>
+
+
+
+
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="./index.css">
+     <title>Tercer entrega</title>
+ </head>
+ <body>
+ <header>
+      <h1 id="title">Lista de Usuarios!</h1>
+ </header>    
+ <main>
+     <section id="create" class="conteiner">
+         <h2>Ingresa los datos:</h2>
+         <form action="" id="formulario">
+ 
+             <label for="username">Nombre:</label> 
+             <input id="username" type="text" name="username" required>
+ 
+             <label id="label" for="age">Edad:</label> 
+             <input id="age" type="text" name="age" required>
+             
+             <label id="label" for="diet">Dieta:</label>         
+             <select name="diet" id="diet" required>
+                 <option value="variada">Variada</option>
+                 <option value="vegana">Vegana</option>
+                 <option value="vegetariana">Vegetariana</option>
+                 <option value="proteica">Proteíca</option>
+                 <option value="fit">Fit</option>
+             </select>
+ 
+             <label for="rutine">Rutina Ejercicio:</label> 
+             <select name="rutine" id="rutine" required>
+                 <option value="requerida">Requerida</option>
+                 <option value="no requerida">No requerida</option>
+             </select>
+ 
+             <label for="status">Estado:</label> 
+             <select name="status" id="status" required>
+                 <option value="Pendiente">Pendiente</option>
+                 <option value="Enviada">Enviada</option>
+             </select>
+ 
+             <label id="email">Mail:</label> 
+             <input id="mail" type="email" name="mail" required>
+
+             <button id="button" type="submit">Let's go!</button> 
+         
+ 
+         </form>
+     </section>
+ <section id="list">
+     <h2>Estado de Usuarios</h2>
+     <section>
+         <div id="datos_container" > </div>
+         <hr>
+     </section>
+     
+ </section>
+ </main>
+ 
+ 
+ 
+    <script src="./index2.js"></script>
+ </body>
+ </html>
+ 

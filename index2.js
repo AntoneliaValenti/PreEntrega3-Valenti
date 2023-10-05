@@ -32,15 +32,15 @@ button.addEventListener('click', () => {
     
     let usuarioHTML = `
         <div>
-        <h2>${newUser.nombre}</h2>
-        <p>${newUser.age}</p>
+            <h2>${newUser.nombre}</h2>
+            <p>${newUser.age}</p>
         </div>
         <p>${newUser.diet}</p>
         <p>${newUser.rutine}</p>
         <p>${newUser.mail}</p>
-        <p class="${newUser.status.toLowerCase()}">${newUser.status}</p>
+        <p id="parrafoStatus-${newUser.nombre}" class="${newUser.status.toLowerCase()}">${newUser.status}</p>
         <div>
-        <button class="boton_dato" type="button">Cambiar Estado</button>
+            <button id="botonDato-${newUser.nombre}" class="boton_dato" type="button">Cambiar Estado</button>
         </div>
     `;
     let usuario = document.createElement('article');
@@ -48,25 +48,33 @@ button.addEventListener('click', () => {
     usuario.innerHTML = usuarioHTML;
     datos_container.appendChild(usuario);
 
+    if(newUser.status === "Enviada"){
+        usuario.classList.add("enviada")
+    }else if(newUser.status === "Pendiente") {
+        usuario.classList.add("pendiente")
+    }
+
     datos_username.value = "";
     datos_age.value = "";
     datos_diet.value = "";
     datos_rutine.value = "";
     datos_status.value = "";
     datos_mail.value = "";
+
+    const botonDato = document.getElementById(`botonDato-${newUser.nombre}`);
+    const parrafoStatus = document.getElementById(`parrafoStatus-${newUser.nombre}`);
+
+    botonDato.addEventListener('click', () => {
+        usuario.classList.toggle("enviada");
+
+        if (usuario.classList.contains("enviada")) {
+            parrafoStatus.textContent = "Enviada";
+        } else {
+            parrafoStatus.textContent = "Pendiente";
+            usuario.classList.add("pendiente");
+        }
+    }); 
 });
-
-const botonDato = usuario.querySelector('.boton_dato');
-botonDato.addEventListener('click', () => {
-    usuario.classList.toggle("enviada");
-});
-// boton_dato.addEventListener('click', () =>{
-//     newUser.classList.toggle("enviada");
-// })
-
-
-
-
 
 
 

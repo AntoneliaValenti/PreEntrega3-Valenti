@@ -113,3 +113,19 @@ input[type="email"] {
     border-color: black;
     width: 800px;
 }
+.boton_dato {
+    width: 80px;
+    height: 30px;
+    margin: 5px auto; 
+    background-color: #04854f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+
+#boton_dato:hover {
+    background-color: #93ffbc;
+    color: black;
+} 

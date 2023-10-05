@@ -31,13 +31,17 @@ button.addEventListener('click', () => {
     localStorage.setItem("usuarios", JSON.stringify(user_list));
     
     let usuarioHTML = `
+        <div>
         <h2>${newUser.nombre}</h2>
         <p>${newUser.age}</p>
+        </div>
         <p>${newUser.diet}</p>
         <p>${newUser.rutine}</p>
         <p>${newUser.mail}</p>
         <p class="${newUser.status.toLowerCase()}">${newUser.status}</p>
-        
+        <div>
+        <button class="boton_dato" type="button">Cambiar Estado</button>
+        </div>
     `;
     let usuario = document.createElement('article');
     usuario.className = "datos";
@@ -52,8 +56,13 @@ button.addEventListener('click', () => {
     datos_mail.value = "";
 });
 
-
-
+const botonDato = usuario.querySelector('.boton_dato');
+botonDato.addEventListener('click', () => {
+    usuario.classList.toggle("enviada");
+});
+// boton_dato.addEventListener('click', () =>{
+//     newUser.classList.toggle("enviada");
+// })
 
 
 

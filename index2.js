@@ -43,6 +43,19 @@ button.addEventListener('click', () => {
             <button id="botonDato-${newUser.nombre}" class="boton_dato" type="button">Cambiar Estado</button>
         </div>
     `;
+    
+
+    datos_username.value = "";
+    datos_age.value = "";
+    datos_diet.value = "";
+    datos_rutine.value = "";
+    datos_status.value = "";
+    datos_mail.value = "";
+
+   
+});
+
+user_list.forEach(totalUser){
     let usuario = document.createElement('article');
     usuario.className = "datos";
     usuario.innerHTML = usuarioHTML;
@@ -53,30 +66,23 @@ button.addEventListener('click', () => {
     }else if(newUser.status === "Pendiente") {
         usuario.classList.add("pendiente")
     }
+    if(newUser.status === "Enviada"){
+        usuario.classList.add("enviada")
+    }else if(newUser.status === "Pendiente") {
+        usuario.classList.add("pendiente")
+    }
+};
 
-    datos_username.value = "";
-    datos_age.value = "";
-    datos_diet.value = "";
-    datos_rutine.value = "";
-    datos_status.value = "";
-    datos_mail.value = "";
+const botonDato = document.getElementById(`botonDato-${newUser.nombre}`);
+const parrafoStatus = document.getElementById(`parrafoStatus-${newUser.nombre}`);
 
-    const botonDato = document.getElementById(`botonDato-${newUser.nombre}`);
-    const parrafoStatus = document.getElementById(`parrafoStatus-${newUser.nombre}`);
+botonDato.addEventListener('click', () => {
+    usuario.classList.toggle("enviada");
 
-    botonDato.addEventListener('click', () => {
-        usuario.classList.toggle("enviada");
-
-        if (usuario.classList.contains("enviada")) {
-            parrafoStatus.textContent = "Enviada";
-        } else {
-            parrafoStatus.textContent = "Pendiente";
-            usuario.classList.add("pendiente");
-        }
-    }); 
-});
-
-
-
-
-
+    if (usuario.classList.contains("enviada")) {
+        parrafoStatus.textContent = "Enviada";
+    } else {
+        parrafoStatus.textContent = "Pendiente";
+        usuario.classList.add("pendiente");
+    }
+});    

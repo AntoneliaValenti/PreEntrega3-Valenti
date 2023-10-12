@@ -41,37 +41,41 @@ button.addEventListener('click', () => {
 });
 
 function renderizarUsuario(user_list) {
-    datos_container.innerHTML = ""
+    datos_container.innerHTML = "";
     user_list.forEach((usuario) => {
-    let usuarioHTML = `
-        <div>
-            <h2>${usuario.nombre}</h2>
-            <p>${usuario.age}</p>
-        </div>
-        <p>${usuario.diet}</p>
-        <p>${usuario.rutine}</p>
-        <p>${usuario.mail}</p>
-        <p id="parrafoStatus-${usuario.nombre}" class="${usuario.status.toLowerCase()}">${usuario.status}</p>
-        <div>
-            <button id="botonDato-${usuario.nombre}" class="boton_dato" type="button">Cambiar Estado</button>
-        </div>
-        <div>
-            <button id="bnt-delete-${usuario.nombre}" class="btn-delete" type="button">Eliminar</button>
-        </div>
-    `;
+        let usuarioHTML = `
+            <div>
+                <h2>${usuario.nombre}</h2>
+                <p>${usuario.age}</p>
+            </div>
+            <p>${usuario.diet}</p>
+            <p>${usuario.rutine}</p>
+            <p>${usuario.mail}</p>
+            <p id="parrafoStatus-${usuario.nombre}" class="${usuario.status.toLowerCase()}">${usuario.status}</p>
+            <div>
+                <button id="botonDato-${usuario.nombre}" class="boton_dato" type="button">Cambiar Estado</button>
+            </div>
+            <div>
+                <button id="btn-delete-${usuario.nombre}" class="btn-delete" type="button">Eliminar</button>
+            </div>
+        `;
         let usuarioElemento = document.createElement('article');
         usuarioElemento.className = "datos";
         usuarioElemento.innerHTML = usuarioHTML;
         datos_container.appendChild(usuarioElemento);
     
         if(usuario.status === "Enviada"){
-            usuarioElemento.classList.add("enviada")
-        }else if(usuario.status === "Pendiente") {
-            usuarioElemento.classList.add("pendiente")
-        };
+            usuarioElemento.classList.add("enviada");
+        } else if(usuario.status === "Pendiente") {
+            usuarioElemento.classList.add("pendiente");
+        }
 
         const botonDato = document.getElementById(`botonDato-${usuario.nombre}`);
         const parrafoStatus = document.getElementById(`parrafoStatus-${usuario.nombre}`);
+        const remove = document.getElementById(`btn-delete-${usuario.nombre}`);
+        remove.addEventListener('click', () => {
+            eliminarUsuario(usuario.nombre);
+        });
 
         botonDato.addEventListener('click', () => {
             usuarioElemento.classList.toggle("enviada");
@@ -83,20 +87,17 @@ function renderizarUsuario(user_list) {
                 usuarioElemento.classList.add("pendiente");
             }
         });
-    })
+    });
 }
-renderizarUsuario(user_list)
 
-const remove = document.querySelectorAll(".btn-delete");
+function eliminarUsuario(nombreUsuario) {
+    user_list = user_list.filter(usuario => usuario.nombre !== nombreUsuario);
+    localStorage.setItem("usuarios", JSON.stringify(user_list));
+    renderizarUsuario(user_list);
+}
 
-btn-delete.addEventListener('click', (e) => {
-    user_list.flter(el => el.btn-delete != e.target.id);
-});
+// Llamar a renderizarUsuario con la lista actual al cargar la página
+renderizarUsuario(user_list);
 
 
 
-// let remove = document.querySelectorAll(".btn-delete");
-// remove.forEach((button) => {
-//     button.addEventListener('click', (e) => {
-//         user_list = user_list.filter(el => el.btn !== e.target.id);
-//     

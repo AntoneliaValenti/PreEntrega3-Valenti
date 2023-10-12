@@ -43,6 +43,22 @@ body {
     color: black;
 }
 
+.btn-go{
+    width: 100px;
+    height: 40px;
+    margin: 20px auto; 
+    background-color: #04854f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+.btn-go:hover {
+    background-color: #93ffbc;
+    color: black;
+}
+
 .pendiente {
     background-color: rgb(245, 245, 92);
     color: rgb(0, 0, 0);
@@ -129,3 +145,33 @@ input[type="email"] {
     background-color: #93ffbc;
     color: black;
 } 
+.rounded-circle{
+    
+    width: 180px;
+    height: 180px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin-block-end: 20px;
+    border-radius: 50%;           
+}
+.img-ppal{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 750px; 
+    height: 220px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    margin: 15px;
+    padding: 15px;
+} 
+
+   
+    
+    
+   
+  
+   

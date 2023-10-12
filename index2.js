@@ -55,6 +55,9 @@ function renderizarUsuario(user_list) {
         <div>
             <button id="botonDato-${usuario.nombre}" class="boton_dato" type="button">Cambiar Estado</button>
         </div>
+        <div>
+            <button id="bnt-delete-${usuario.nombre}" class="btn-delete" type="button">Eliminar</button>
+        </div>
     `;
         let usuarioElemento = document.createElement('article');
         usuarioElemento.className = "datos";
@@ -83,3 +86,17 @@ function renderizarUsuario(user_list) {
     })
 }
 renderizarUsuario(user_list)
+
+const remove = document.querySelectorAll(".btn-delete");
+
+btn-delete.addEventListener('click', (e) => {
+    user_list.flter(el => el.btn-delete != e.target.id);
+});
+
+
+
+// let remove = document.querySelectorAll(".btn-delete");
+// remove.forEach((button) => {
+//     button.addEventListener('click', (e) => {
+//         user_list = user_list.filter(el => el.btn !== e.target.id);
+//     

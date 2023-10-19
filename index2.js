@@ -48,6 +48,7 @@ function renderizarUsuario(user_list) {
                 <h2>${usuario.nombre}</h2>
                 <p>${usuario.age}</p>
             </div>
+            <div>
             <p>${usuario.diet}</p>
             <p>${usuario.rutine}</p>
             <p>${usuario.mail}</p>
@@ -96,8 +97,33 @@ function eliminarUsuario(nombreUsuario) {
     renderizarUsuario(user_list);
 }
 
-// Llamar a renderizarUsuario con la lista actual al cargar la página
 renderizarUsuario(user_list);
 
+const baseDatos = () => {
+    return new Promise ((resolve, reject) => {
+        setTimeout (() => {
+            resolve(user_list)
+        }, 3000);
+    });
+};
 
+const renderDatos = () => 
+    function user_list()
 
+baseDatos()
+    .then((res) => {
+        user_list = res 
+        renderDatos(user_list)
+    })
+
+    // const renderDatos = (data) => {
+
+    // }
+    
+    // baseDatos()
+    //     .then((res) => {
+    //         renderDatos(res);
+    //     })
+    //     .catch((error) => {
+    //         console.error(error);
+    //     });

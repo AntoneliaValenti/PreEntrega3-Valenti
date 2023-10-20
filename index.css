@@ -122,7 +122,7 @@ input[type="email"] {
     color: rgb(0, 0, 0);
     border-radius: 20px;
     padding: 8px;
-    margin-right: 5px;
+    margin: 2px;
     font-style: italic;
     font-weight: bold;
     display: flex;
@@ -135,6 +135,7 @@ input[type="email"] {
     border-color: black;
     width: 800px;
     background-color: whitesmoke;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); 
 }
 
 .boton_dato {
@@ -150,6 +151,18 @@ input[type="email"] {
 }
 
 #boton_dato:hover {
+    background-color: #93ffbc;
+    color: black;
+} 
+.btn-delete{
+    background-color: #04854f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+#btn-delete:hover {
     background-color: #93ffbc;
     color: black;
 } 
@@ -176,8 +189,36 @@ input[type="email"] {
     margin: 15px;
     padding: 15px;
 } 
+.swal2-modal{
+    background-color: #ccffcf; 
+    border-radius: 15px; 
+    font-family: Arial, sans-serif; 
+    font-size: 16px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    padding: 20px; 
+    color: #333;
+}
+.swal2-actions{
 
-    
-
+   background-color: #04854f;
+    color: whitesmoke;
+}
+/* background-color:#cbf3da;
+    border-radius: 10px; 
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px; box-shadow:#04854f 
+     background-color: #7066e0;margin: .3125em;
+    padding: .625em 1.1em;
+    transition: box-shadow .1s;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0);
+    font-weight: 500;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer;
+    border: 0;
+    border-radius: .25em;
+    background: initial;
+    background-color: ;
+    color: #fff;
+    font-size: 1em;
+    display: inline-block;*/
   
-   

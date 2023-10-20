@@ -60,7 +60,7 @@ body {
 }
 
 .pendiente {
-    background-color: rgb(245, 245, 92);
+    background-color: rgb(248, 179, 76);
     color: rgb(0, 0, 0);
     border-radius: 20px;
     padding: 8px;
@@ -68,15 +68,15 @@ body {
     font-style: italic;
     font-weight: bold;
 }
-.enviada {
-    background-color: rgb(105, 241, 135);
+.enviada{
+    background-color: whitesmoke;
     color: rgb(0, 0, 0);
     border-radius: 20px;
     padding: 8px;
     margin-right: 5px;
     font-style: italic;
     font-weight: bold;
-}
+}  
 
 
 .conteiner {
@@ -119,6 +119,12 @@ input[type="email"] {
     font-size: 15px;    
 }
 .datos{
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 8px;
+    margin-right: 5px;
+    font-style: italic;
+    font-weight: bold;
     display: flex;
     flex-direction: row; 
     justify-content:space-between;
@@ -128,7 +134,9 @@ input[type="email"] {
     border-style: solid;
     border-color: black;
     width: 800px;
+    background-color: whitesmoke;
 }
+
 .boton_dato {
     width: 80px;
     height: 30px;
@@ -169,9 +177,7 @@ input[type="email"] {
     padding: 15px;
 } 
 
-   
     
-    
-   
+
   
    

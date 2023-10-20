@@ -9,7 +9,7 @@ const datos_container = document.querySelector('#datos_container');
 
 let user_list = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-function totalUser() {
+function addUser() {
     let newUser = {
         nombre: datos_username.value,
         age: datos_age.value,
@@ -23,11 +23,15 @@ function totalUser() {
 
 button.addEventListener('click', () => {
     if (!datos_username.value || !datos_age.value || !datos_diet.value || !datos_rutine.value || !datos_status.value || !datos_mail.value) {
-        alert("Por favor, complete todos los campos.");
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Por favor, complete todos los campos.!'
+          });
         return;
     }
 
-    totalUser();
+    addUser();
     localStorage.setItem("usuarios", JSON.stringify(user_list));
   
     renderizarUsuario(user_list);
@@ -40,31 +44,36 @@ button.addEventListener('click', () => {
     datos_mail.value = "";
 });
 
+
+
 function renderizarUsuario(user_list) {
     datos_container.innerHTML = "";
     user_list.forEach((usuario) => {
         let usuarioHTML = `
-            <div>
-                <h2>${usuario.nombre}</h2>
-                <p>${usuario.age}</p>
-            </div>
-            <div>
+        <div>
+            <h2>${usuario.nombre}</h2>
+            <p>${usuario.age}</p>
+        </div>
+        <div>
             <p>${usuario.diet}</p>
             <p>${usuario.rutine}</p>
             <p>${usuario.mail}</p>
+        </div>
+        <div>
             <p id="parrafoStatus-${usuario.nombre}" class="${usuario.status.toLowerCase()}">${usuario.status}</p>
-            <div>
-                <button id="botonDato-${usuario.nombre}" class="boton_dato" type="button">Cambiar Estado</button>
-            </div>
-            <div>
-                <button id="btn-delete-${usuario.nombre}" class="btn-delete" type="button">Eliminar</button>
-            </div>
+        <button id="botonDato-${usuario.nombre}" class="boton_dato" type="button">Cambiar Estado</button>
+        </div>
+        <div>
+            <button id="btn-delete-${usuario.nombre}" class="btn-delete" type="button">X</button>
+        </div>
         `;
+        
         let usuarioElemento = document.createElement('article');
         usuarioElemento.className = "datos";
         usuarioElemento.innerHTML = usuarioHTML;
         datos_container.appendChild(usuarioElemento);
-    
+
+
         if(usuario.status === "Enviada"){
             usuarioElemento.classList.add("enviada");
         } else if(usuario.status === "Pendiente") {
@@ -74,6 +83,7 @@ function renderizarUsuario(user_list) {
         const botonDato = document.getElementById(`botonDato-${usuario.nombre}`);
         const parrafoStatus = document.getElementById(`parrafoStatus-${usuario.nombre}`);
         const remove = document.getElementById(`btn-delete-${usuario.nombre}`);
+        
         remove.addEventListener('click', () => {
             eliminarUsuario(usuario.nombre);
         });
@@ -91,39 +101,37 @@ function renderizarUsuario(user_list) {
     });
 }
 
+
+
+
 function eliminarUsuario(nombreUsuario) {
     user_list = user_list.filter(usuario => usuario.nombre !== nombreUsuario);
     localStorage.setItem("usuarios", JSON.stringify(user_list));
     renderizarUsuario(user_list);
 }
 
-renderizarUsuario(user_list);
-
 const baseDatos = () => {
     return new Promise ((resolve, reject) => {
-        setTimeout (() => {
+        setTimeout(() => {
             resolve(user_list)
         }, 3000);
     });
 };
 
-const renderDatos = () => 
-    function user_list()
-
 baseDatos()
     .then((res) => {
-        user_list = res 
-        renderDatos(user_list)
+        renderizarUsuario(res);
     })
+    .catch((error) => {
+        console.error(error);
+    });
 
-    // const renderDatos = (data) => {
-
-    // }
-    
-    // baseDatos()
-    //     .then((res) => {
-    //         renderDatos(res);
-    //     })
-    //     .catch((error) => {
-    //         console.error(error);
-    //     });
+    function Add () {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1000
+          })
+    }
